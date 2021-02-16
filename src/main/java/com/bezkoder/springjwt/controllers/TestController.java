@@ -16,15 +16,15 @@ public class TestController {
 	}
 	
 	@GetMapping("/user")
-	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('USER') or hasRole('GREENKEEPER') or hasRole('ADMIN')")
 	public String userAccess() {
 		return "User Content.";
 	}
 
-	@GetMapping("/mod")
-	@PreAuthorize("hasRole('MODERATOR')")
-	public String moderatorAccess() {
-		return "Moderator Board.";
+	@GetMapping("/greenkeeper")
+	@PreAuthorize("hasRole('GREENKEEPER')")
+	public String greenKeeperAccess() {
+		return "Greenkeeper Board.";
 	}
 
 	@GetMapping("/admin")
@@ -34,7 +34,7 @@ public class TestController {
 	}
 
 	@GetMapping("/events")
-	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('USER') or hasRole('GREENKEEPER') or hasRole('ADMIN')")
 	public String eventAccess() {
 		return "Event Content.";
 	}
